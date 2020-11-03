@@ -45,6 +45,8 @@ class BooksController extends Controller
 	{
 
 		$books= $request->get('params');
+		// var_dump($books);
+		// die();
 		XmlProcess::dispatch($books);
 		$message = array(
 			'type' => 'success',

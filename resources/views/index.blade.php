@@ -34,12 +34,19 @@
         }
 
         .highlight {
-            font-weight: bolder;
+            font-weight: bold;
             color: #010858;
             background: yellow;
             border: solid 1px #ececec;
-            font-size: 1.5rem;
         }
+
+        .pagination li {
+            margin: 0 10px;
+        }
+
+        .pagination li.active a {
+            color: #ea677f;
+            font-weight: bold;
         }
 
     </style>

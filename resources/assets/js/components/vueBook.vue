@@ -5,6 +5,12 @@
             <input type="text" class="form-control" v-model="filter" placeholder="search" @keyup="search()" id="search_input" />
         </div>
     </div>
+    <div class="row">
+        <div class="text-center col-md-12">
+            <Pagination :resultData="resultData" @clicked="init" :mid-size="9"></Pagination>
+        </div>
+    </div>
+
     <table class="table loader-form" v-cloak>
         <thead>
             <tr class="tr">
@@ -31,7 +37,6 @@
             <Pagination :resultData="resultData" @clicked="init" :mid-size="9"></Pagination>
         </div>
     </div>
-    {{ test }}
 </div>
 </template>
 
@@ -93,17 +98,16 @@ export default {
             } else {
                 var search_regexp = new RegExp(self.filter, "g");
                 $(this).html(
-                    $(this).attr("content").replace(
+                    $(this)
+                    .attr("content")
+                    .replace(
                         search_regexp,
                         "<span class = 'highlight'>" + self.filter + "</span>"
                     )
                 );
             }
-
         });
-    }
+    },
 };
-$(function () {
-
-});
+$(function () {});
 </script>

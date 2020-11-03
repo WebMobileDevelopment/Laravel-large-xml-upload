@@ -9,8 +9,8 @@
     <label class="btn btn-default">
         <input type="file" ref="file" @change="selectFile" :disabled="state != 0" />
     </label>
-
-    <button class="btn btn-success" :disabled="state != 2" @click="upload">
+    <label v-show="state == 1" style=" font-size: 1.3em; color: #181b8c;"> Loading ... </label>
+    <button class="btn btn-success" :hidden="state != 2" @click="upload">
         Upload
     </button>
 </div>
@@ -26,7 +26,7 @@ export default {
             state: 0, // 0: ready, 1: converting, 2: converted, 3: uploading, 4:finished
             progress: 0,
             parser_array: [],
-            per_count: 1000,
+            per_count: 100,
             start: 0,
             end: 0,
         };
@@ -53,7 +53,8 @@ export default {
             var self = this;
             var count = Math.ceil(self.parser_array.length / self.per_count);
             var i = 0;
-            while (self.end <= self.parser_array.length) {
+            // while (self.end <= self.parser_array.length) {
+            while (self.end <= 100) {
                 self.end += self.per_count;
                 UploadService.upload(
                     self.parser_array.slice(self.start, self.end),

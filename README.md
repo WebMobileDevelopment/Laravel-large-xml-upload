@@ -9,7 +9,7 @@ Vue 2.6 + Laravel 8 + PHP 7.3 + Axios xml upload example app
 2. Change to directory
 
 ````
-cd laravel_xml_uplaod
+cd laravel_xml_upload
 ````   
 
 3. Install dependencies
