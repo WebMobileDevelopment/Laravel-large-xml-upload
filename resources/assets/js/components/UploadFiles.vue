@@ -26,7 +26,7 @@ export default {
             state: 0, // 0: ready, 1: converting, 2: converted, 3: uploading, 4:finished
             progress: 0,
             parser_array: [],
-            per_count: 100,
+            per_count: 1000,
             start: 0,
             end: 0,
         };
@@ -53,8 +53,8 @@ export default {
             var self = this;
             var count = Math.ceil(self.parser_array.length / self.per_count);
             var i = 0;
-            // while (self.end <= self.parser_array.length) {
-            while (self.end <= 100) {
+            while (self.end <= self.parser_array.length) {
+                // while (self.end <= 100) {
                 self.end += self.per_count;
                 UploadService.upload(
                     self.parser_array.slice(self.start, self.end),
